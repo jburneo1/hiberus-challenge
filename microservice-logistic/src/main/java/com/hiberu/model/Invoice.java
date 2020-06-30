@@ -24,7 +24,6 @@ public class Invoice {
     @ApiModelProperty(notes = "Must create a Payment in his model to Create a invoice")
     @ManyToOne
     @JoinColumn(name = "id_payment", nullable = false, foreignKey = @ForeignKey(name = "fk_payment_mode"))
-    @Column(name = "payment_mode", nullable = false, length = 12)
     private PaymentMode paymentMode;
 
     private LocalDateTime localDateTime;
