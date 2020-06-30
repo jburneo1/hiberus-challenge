@@ -3,7 +3,7 @@ http://localhost:8080/consume-api
 {
     "client": {
         "idClient": 1,
-        "fullName": "Ivan Villazon"
+        "fullName": "Jesus Burneo"
     },
     "paymentMode": {
         "idPayment": 1
