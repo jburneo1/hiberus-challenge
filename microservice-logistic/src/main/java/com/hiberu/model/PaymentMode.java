@@ -1,7 +1,11 @@
 package com.hiberu.model;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
 
+@ApiModel(description = "Payments Information")
 @Entity
 @Table(name = "payment_mode")
 public class PaymentMode {
@@ -11,7 +15,8 @@ public class PaymentMode {
     @Column(name = "id_payment")
     private Integer idPayment;
 
-    @Column(name = "name")
+    @ApiModelProperty(notes = "Name must have minimum 3 characters")
+    @Column(name = "name", nullable = false, length = 70)
     private String name;
 
     public Integer getIdPayment() {

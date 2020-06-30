@@ -21,19 +21,18 @@ public class Details {
     @JoinColumn(name = "id_invoice", nullable = false, foreignKey = @ForeignKey(name = "fk_details_invoice"))
     private Invoice invoice;
 
-    @ApiModelProperty()
+    @ApiModelProperty(notes = "Products names")
     @Column(name = "nameProduct")
     private String nameProduct;
 
-    @ApiModelProperty(notes = "Must create a Client in his model to Create a invoice")
     @Column(name = "idProduct")
     private Integer idProduct;
 
-    @ApiModelProperty()
+    @ApiModelProperty(notes = "Price for products")
     @Column(name = "price")
     private Integer price;
 
-    @ApiModelProperty()
+    @ApiModelProperty(notes = "Quantity for products")
     @Column(name = "quantity")
     private Double quantity;
 

@@ -1,7 +1,11 @@
 package com.hiberu.model;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
 
+@ApiModel(description = "Client Information")
 @Entity
 @Table(name = "clients")
 public class Client {
@@ -11,16 +15,20 @@ public class Client {
     @Column(name = "id_client")
     private Integer idClient;
 
-    @Column(name = "full_name")
+    @ApiModelProperty(notes = "Name must have minimum 3 characters")
+    @Column(name = "full_name", nullable = false, length = 70)
     private String fullName;
 
-    @Column(name = "address")
+    @ApiModelProperty(notes = "Address must have minimum 3 characters")
+    @Column(name = "address", nullable = false, length = 70)
     private String address;
 
-    @Column(name = "email")
+    @ApiModelProperty(notes = "Email must have minimum 3 characters")
+    @Column(name = "email", nullable = false, length = 70)
     private String email;
 
-    @Column(name = "phone")
+    @ApiModelProperty(notes = "Phone must have minimum 3 characters")
+    @Column(name = "phone", nullable = false, length = 12)
     private String phone;
 
     public Integer getIdClient() {

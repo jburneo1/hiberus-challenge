@@ -1,8 +1,7 @@
 server:
   port: 8081
 
-urlConsume: http://${micro-logistic}:${port_apiLogistic}/invoice
-aaapersona: http://${url_apipersona}:${port_apipersona}/api/personas/find/
+urlConsume: http://${micro-logistic}:8082/invoice
 
 spring:
   jpa:

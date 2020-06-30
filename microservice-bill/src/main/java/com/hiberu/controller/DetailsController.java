@@ -1,8 +1,5 @@
 package com.hiberu.controller;
 
-import com.hiberu.model.Client;
-import com.hiberu.model.Details;
-import com.hiberu.service.IClientService;
 import com.hiberu.service.IDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

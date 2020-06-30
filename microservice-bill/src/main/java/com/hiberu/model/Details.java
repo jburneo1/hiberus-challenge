@@ -1,9 +1,12 @@
 package com.hiberu.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
 
+@ApiModel(description = "Details Information")
 @Entity
 @Table(name = "details")
 public class Details {
@@ -12,20 +15,24 @@ public class Details {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idDetail;
 
+    @ApiModelProperty()
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "id_invoice", nullable = false, foreignKey = @ForeignKey(name = "fk_details_invoice"))
     private Invoice invoice;
 
-    @Column
+    @ApiModelProperty(notes = "Products names")
+    @Column(name = "nameProduct")
     private String nameProduct;
 
-    @Column
+    @Column(name = "idProduct")
     private Integer idProduct;
 
-    @Column
+    @ApiModelProperty(notes = "Price for products")
+    @Column(name = "price")
     private Integer price;
 
+    @ApiModelProperty(notes = "Quantity for products")
     @Column(name = "quantity")
     private Double quantity;
 

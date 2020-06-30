@@ -1,13 +1,19 @@
 package com.hiberu.model;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
-
+@ApiModel(description = "Client Information")
 public class Client {
 
     private Integer idClient;
+
     private String fullName;
+
     private String address;
+
     private String email;
+
     private String phone;
 
     public Integer getIdClient() {

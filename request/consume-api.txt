@@ -1,0 +1,17 @@
+http://localhost:8080/consume-api
+
+{
+    "client": {
+        "idClient": 1,
+        "fullName": "Ivan Villazon"
+    },
+    "paymentMode": {
+        "idPayment": 1
+    },
+    "localDateTime": "2020-06-19T05:00:00.000Z",
+    "details": [
+		{ "nameProduct" : "Celular", "idProduct" : 123, "price" : 100, "quantity" : 2},	
+		{ "nameProduct" : "Libreta", "idProduct" : 123, "price" : 200, "quantity" : 2},
+		{ "nameProduct" : "Portatil", "idProduct" : 798798, "price" : 1000, "quantity" : 2}
+	]
+}

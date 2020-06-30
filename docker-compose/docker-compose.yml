@@ -18,8 +18,6 @@ services:
     micro-checkout:
         build: ../checkout-service/
         image: jburneo1/hiberu-micro-checkout:latest
-        environment:
-            - network=backend
         depends_on:
             - mypostgre
          #Si no especifico un puerto host, se creará uno aleatorio
@@ -37,7 +35,7 @@ services:
         environment:
             - host=mypostgre
             - urlConsume=micro-logistic
-            - port_apiLogistic=8082
+            - port_api=8082
         depends_on:
             - micro-checkout
             - mypostgre
@@ -54,6 +52,7 @@ services:
         environment:
             - host=mypostgre
         depends_on:
+            - mypostgre
             - micro-checkout
             - micro-bill
         ports: 

@@ -1,6 +1,5 @@
 package com.hiberu.service.impl;
 
-import com.hiberu.model.Details;
 import com.hiberu.repository.IDetailsRepository;
 import com.hiberu.service.IDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;

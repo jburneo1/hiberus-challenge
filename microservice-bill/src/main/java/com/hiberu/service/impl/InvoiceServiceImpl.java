@@ -19,9 +19,6 @@ import java.util.Optional;
 @Service
 public class InvoiceServiceImpl  implements IInvoceService {
 
-    @Value("${urlConsume}")
-    private String urlConsume;
-
     @Autowired
     private IInvoiceRepository repo;
 
@@ -63,12 +60,13 @@ public class InvoiceServiceImpl  implements IInvoceService {
 
     @Override
     public String triggerLogistic(Invoice invoice) {
+        String url = "http://micro-logistic:8082/logistic";
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         HttpEntity<Invoice> entity = new HttpEntity<Invoice>(invoice, headers);
-        System.out.println("Esto imprime la url" + urlConsume);
+        System.out.println("Esto imprime la url " + url);
 
         return restTemplate.exchange(
-                urlConsume, HttpMethod.POST, entity, String.class).getBody();
+                url, HttpMethod.POST, entity, String.class).getBody();
     }
 }

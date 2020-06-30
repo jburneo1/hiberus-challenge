@@ -8,7 +8,6 @@ COPY target/microservice-bill*.jar app.jar
 
 ENV username="postgres"
 ENV password="admin"
-ENV port_apiLogistic="8082"
 
 ENV DOCKERIZE_VERSION v0.6.1
 #Podemos descargar dockerize o copiarlo desde un directorio

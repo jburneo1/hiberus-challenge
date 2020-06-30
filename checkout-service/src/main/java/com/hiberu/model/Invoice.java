@@ -16,6 +16,15 @@ public class Invoice {
 
     private List<Details> details;
 
+    public Double getTotalOrderPrice() {
+        double sum = 0;
+        List<Details> details = getDetails();
+        for (Details d : details) {
+            sum += d.getSubtotalPrice();
+        }
+        return sum;
+    }
+
     public Integer getIdInvoice() {
         return idInvoice;
     }

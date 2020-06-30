@@ -1,0 +1,9 @@
+http://localhost:8082/payment
+{
+	"name": "CREDITO"
+}
+
+http://localhost:8081/payment
+{
+	"name": "CREDITO"
+}

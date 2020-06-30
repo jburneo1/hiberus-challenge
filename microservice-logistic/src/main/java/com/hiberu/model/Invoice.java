@@ -1,9 +1,13 @@
 package com.hiberu.model;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@ApiModel(description = "Invoice Information")
 @Entity
 @Table(name = "invoice")
 public class Invoice {
@@ -17,12 +21,15 @@ public class Invoice {
     @JoinColumn(name = "id_client", nullable = false, foreignKey = @ForeignKey(name = "fk_client_id"))
     private Client client;
 
+    @ApiModelProperty(notes = "Must create a Payment in his model to Create a invoice")
     @ManyToOne
     @JoinColumn(name = "id_payment", nullable = false, foreignKey = @ForeignKey(name = "fk_payment_mode"))
+    @Column(name = "payment_mode", nullable = false, length = 12)
     private PaymentMode paymentMode;
 
     private LocalDateTime localDateTime;
 
+    @ApiModelProperty(notes = "Details list products with his quantity")
     @OneToMany(mappedBy = "invoice", cascade = {CascadeType.ALL}, orphanRemoval = true)
     private List<Details> details;
 

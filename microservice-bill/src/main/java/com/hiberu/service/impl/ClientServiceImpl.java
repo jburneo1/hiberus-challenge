@@ -1,7 +1,5 @@
 package com.hiberu.service.impl;
 
-import com.hiberu.model.Client;
-import com.hiberu.model.Invoice;
 import com.hiberu.repository.IClientRepository;
 import com.hiberu.service.IClientService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,21 +1,29 @@
 package com.hiberu.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
+@ApiModel(description = "Details Information")
 
 public class Details {
 
     private Integer idDetail;
 
+    @ApiModelProperty()
+    @JsonIgnore
     private Invoice invoice;
 
+    @ApiModelProperty(notes = "Products names")
     private String nameProduct;
 
     private Integer idProduct;
 
+    @ApiModelProperty(notes = "Price for products")
     private Integer price;
 
+    @ApiModelProperty(notes = "Quantity for products")
     private Double quantity;
 
     private Double subtotalPrice;
@@ -69,10 +77,11 @@ public class Details {
     }
 
     public Double getSubtotalPrice() {
-        return subtotalPrice;
+        return getPrice() * getQuantity();
     }
 
     public void setSubtotalPrice(Double subtotalPrice) {
         this.subtotalPrice = subtotalPrice;
     }
+
 }
