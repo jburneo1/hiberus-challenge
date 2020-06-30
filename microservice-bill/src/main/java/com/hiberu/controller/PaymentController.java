@@ -1,5 +1,6 @@
 package com.hiberu.controller;
 
+import com.hiberu.model.PaymentMode;
 import com.hiberu.service.IPamentModeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

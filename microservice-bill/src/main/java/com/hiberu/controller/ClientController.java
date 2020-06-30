@@ -1,5 +1,6 @@
 package com.hiberu.controller;
 
+import com.hiberu.model.Client;
 import com.hiberu.service.IClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

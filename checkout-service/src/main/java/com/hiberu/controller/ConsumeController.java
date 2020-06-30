@@ -1,5 +1,6 @@
 package com.hiberu.controller;
 
+import com.hiberu.model.Invoice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
