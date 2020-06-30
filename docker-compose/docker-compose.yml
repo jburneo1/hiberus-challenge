@@ -1,0 +1,70 @@
+version: '3.4'
+
+services:
+
+    mypostgre:
+        #Ignorado cuando se usa en modo swarm (swarm usa imágenes de un registry)
+        build: ../basedatos/
+        image: jburneo1/hiberu-postgre:latest
+        volumes: 
+            - my-data:/var/lib/postgresql/
+        ports:
+            - "5432:5432" 
+        #Ignorado cuando se usa en swarm mode (usar restart_policy)
+        restart: on-failure
+        networks:
+            backend: 
+    
+    micro-checkout:
+        build: ../checkout-service/
+        image: jburneo1/hiberu-micro-checkout:latest
+        environment:
+            - network=backend
+        depends_on:
+            - mypostgre
+         #Si no especifico un puerto host, se creará uno aleatorio
+        ports: 
+            - "8080:8080"
+        restart: on-failure
+        #Sobreescribiendo el entrypoint del dockerfile
+        entrypoint: dockerize -wait tcp://mypostgre:5432 -timeout 10m java -jar /workspace/app.jar
+        networks:
+            backend:
+
+    micro-bill:
+        build: ../microservice-bill/
+        image: jburneo1/hiberu-micro-bill:latest
+        environment:
+            - host=mypostgre
+            - urlConsume=micro-logistic
+            - port_apiLogistic=8082
+        depends_on:
+            - micro-checkout
+            - mypostgre
+        ports: 
+            - "8081:8081"
+        restart: on-failure
+        entrypoint: dockerize -wait tcp://mypostgre:5432 -timeout 10m java -jar /workspace/app.jar
+        networks:
+            backend:
+                
+    micro-logistic:
+        build: ../microservice-logistic/
+        image: jburneo1/hiberu-micro-logistic:latest
+        environment:
+            - host=mypostgre
+        depends_on:
+            - micro-checkout
+            - micro-bill
+        ports: 
+            - "8082:8082"
+        restart: on-failure
+        entrypoint: dockerize -wait tcp://mypostgre:5432 -timeout 10m java -jar /workspace/app.jar
+        networks:
+            backend:
+            
+volumes: 
+    my-data:
+
+networks:
+  backend: 

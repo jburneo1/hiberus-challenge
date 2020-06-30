@@ -1,0 +1,17 @@
+server:
+  port: 8081
+
+urlConsume: http://${micro-logistic}:${port_apiLogistic}/invoice
+aaapersona: http://${url_apipersona}:${port_apipersona}/api/personas/find/
+
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${host}:5432/db_invoice
+    username: postgres
+    password: admin
